@@ -15,6 +15,7 @@ public class Thinggy {
     public Thinggy(String name, String description) {
         this.name = name;
         this.description = description;
+        LOG.debug("Creating a new Thinggy({},{})", name, description);
     }
 
     public String getName() {
@@ -24,4 +25,5 @@ public class Thinggy {
     public String getDescription() {
         return description;
     }
+
 }

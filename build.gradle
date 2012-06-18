@@ -2,9 +2,13 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'maven'
 
-group = "cc.ensor.workshop"
-version = "0.01-SNAPSHOT"
-description = "Simple repository to show off GIT capabilities for a GIT workshop"
+group = 'cc.ensor.workshop'
+description = 'Simple repository to show off GIT capabilities for a GIT workshop'
+version = '0.01'
+
+if (!System.properties.'release') {
+    version = version + '-SNAPSHOT'
+}
 
 targetCompatibility = "1.6"
 sourceCompatibility = "1.6"
@@ -19,28 +23,26 @@ test {
     beforeTest { descriptor ->
         logger.lifecycle("Running test: " + descriptor)
     }
-    onOutput { descriptor, event ->
-        logger.lifecycle("Test: " + descriptor + " produced standard out/err: " + event.message)
+    onOutput {desc, event ->
+        switch (event.destination) {
+            case TestOutputEvent.Destination.StdOut:
+                println event.message
+                break
+            case TestOutputEvent.Destination.StdErr:
+                System.err.println event.message
+                break
+        }
     }
 }
 
-//sourceSets {
-//    main {
-//        //if you truly want to override the defaults:
-//        output.resourcesDir = 'target/classes'
-//        output.classesDir = 'target/classes'
-//    }
-//    test {
-//        output.resourcesDir = 'target/test-classes'
-//        output.classesDir = 'target/test-classes'
-//    }
-//}
+def props = [logbackVersion: '1.0.3', slf4jVersion: '1.6.4']
+
 
 dependencies {
 
     compile(
-            [group: 'ch.qos.logback', name: 'logback-classic', version: '0.9.30'],
-            [group: 'org.slf4j', name: 'slf4j-api', version: '1.6.2']
+            [group: 'ch.qos.logback', name: 'logback-classic', version: props.logbackVersion],
+            [group: 'org.slf4j', name: 'slf4j-api', version: props.slf4jVersion]
     )
 
     testCompile(
