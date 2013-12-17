@@ -23,7 +23,7 @@ git config --global difftool.conflictstyle merge
 git config --global merge.tool meld
 git config --global mergetool.meld.name Meld
 git config --global mergetool.meld.trustExitCode true
-git config --global mergetool.meld.cmd "\"C:/Program Files (x86)/Meld/meld/meld.exe\" \$LOCAL \$REMOTE --output=\$MERGED"
+git config --global mergetool.meld.cmd "\"C:/Program Files (x86)/Meld/meld/meld.exe\" \$LOCAL \$MERGED \$REMOTE"
 
 #
 # Adding winmerge as a difftool
