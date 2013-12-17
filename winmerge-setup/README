@@ -1,3 +1,12 @@
-Scripts pulled from GitHub Gist
+Scripts based on GitHub Gist
 https://gist.github.com/markusobrist/1010253
+
+To INSTALL:
+
+1) Ensure that the Win Merge folder is on the path
+    a) in a command prompt run: WinMergeU
+    b) If Win Merge is not in the path, add it
+2) Run the git-mergetool-winmerge-setup.sh
+    a) This is a one-time run; confgurations are setup to be global
+
 

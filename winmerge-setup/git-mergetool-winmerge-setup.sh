@@ -6,7 +6,7 @@
 #
 
 # If your WinMerge is in other place then this one, please edit
-WINMERGE_SCRIPT="winmerge-merge.sh"
+WINMERGE_SCRIPT="\"C:/Program Files (x86)/WinMerge/WinMergeU.exe\" -e -u -dl \"Local\" -dr \"Remote\" \"\$1\" \"\$2\" \"\$3\" \"\$4\""
 
 #
 # Global setup
